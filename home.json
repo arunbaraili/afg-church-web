@@ -1,0 +1,101 @@
+{
+  "hero": {
+    "title": "Assembly Faith Gospel Church",
+    "subtitle": "Mark 16:15",
+    "verse": "And he said to them 'Go into all the world and proclaim the gospel to the whole creation.'",
+    "video": "uploads/background-video/churchVid.mp4"
+  },
+  "service": {
+    "day": "Every Sunday",
+    "time": "12:00 PM - 2:00 PM",
+    "location": "400 Donelson Pike, Nashville, TN 37214"
+  },
+  "about": {
+    "paragraph1": "We are a local Nepali church serving our community with love and purpose. At AFG Church, we're committed to bringing hope and healing by caring for the physical, spiritual, and relational needs of people—just as Jesus did. We joyfully serve not only the Nepali community but also our neighbors from all backgrounds, standing alongside those in need with compassion and faith.",
+    "paragraph2": "Together, we can reach people of every age, culture, and language with the life-changing message of Christ.",
+    "galleryUrl": "https://collection.cloudinary.com/dhwpjxt89/9449e11b6ab94abe4d88c3ebadfd594c",
+    "images": []
+  },
+  "mission": {
+    "title": "Our Mission",
+    "items": []
+  },
+  "pastors": [
+    {
+      "name": "Pritham Magar",
+      "role": "Pastor",
+      "bio": "Bio working.",
+      "photo": "https://res.cloudinary.com/dhwpjxt89/image/upload/v1779402161/b9rbang9cvpepe5qo5my.jpg",
+      "has_bio": true,
+      "facebook": "https://www.facebook.com/pritha7077",
+      "instagram": ""
+    },
+    {
+      "name": "Ratna Rai",
+      "role": "Pastor",
+      "bio": "Bio about the pastor",
+      "photo": "https://res.cloudinary.com/dhwpjxt89/image/upload/v1779402161/bab2hspc4sqkvmqpxpkl.jpg",
+      "has_bio": true,
+      "facebook": "https://www.facebook.com/ratna.rai.96155"
+    },
+    {
+      "name": "Monu Rai",
+      "role": "Pastor",
+      "bio": "Bio about the pastor",
+      "photo": "https://res.cloudinary.com/dhwpjxt89/image/upload/v1779402160/vthz7uaw0ulo4qqzlkbn.jpg",
+      "has_bio": true,
+      "facebook": "https://www.facebook.com/princess.panthak"
+    },
+    {
+      "has_bio": true,
+      "name": "Aiyan Rai",
+      "role": "Pastor",
+      "bio": "Bio working.",
+      "photo": "https://res.cloudinary.com/dhwpjxt89/image/upload/v1779329613/kztjkledodzogyz5uihp.jpg"
+    }
+  ],
+  "leaders": [
+    {
+      "name": "Alina Rai",
+      "role": "Youth Leader",
+      "bio": "Bio Pending",
+      "photo": "https://res.cloudinary.com/dhwpjxt89/image/upload/v1779402161/wbx2kluhqlizj4rf0pe6.jpg",
+      "has_bio": true
+    },
+    {
+      "name": "Ashan Rai",
+      "role": "Treasurer",
+      "bio": "Bio about the leader",
+      "photo": "https://res.cloudinary.com/dhwpjxt89/image/upload/v1779402161/kryqm9zl54ofszstxven.jpg",
+      "has_bio": true
+    },
+    {
+      "has_bio": true,
+      "name": "Anu Rai",
+      "role": "Sunday School Teacher",
+      "bio": "Bio pending",
+      "photo": "https://res.cloudinary.com/dhwpjxt89/image/upload/v1779402160/na4giu0ek9jtnn5zxeqt.jpg"
+    },
+    {
+      "has_bio": true,
+      "name": "Moni Chamling",
+      "role": "Elder",
+      "bio": "Bio pending",
+      "photo": "https://res.cloudinary.com/dhwpjxt89/image/upload/v1779402161/mvyrnnerakdhitchdesc.jpg"
+    }
+  ],
+  "connect": {
+    "title": "Connect With Us",
+    "address": "400 Donelson Pike, Nashville, TN 37214",
+    "serviceTime": "Sunday: 12:00 PM - 2:00 PM",
+    "email": "contact@email.com",
+    "phone": "(123) 457-7890",
+    "mapEmbededUrl": "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d497.0397877683054!2d-86.66622939068793!3d36.15615767730665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzbCsDA5JzIxLjciTiA4NsKwMzknNTkuOSJX!5e1!3m2!1sen!2sus!4v1748875444849!5m2!1sen!2sus",
+    "formAction": "https://formspree.io/f/xeezvqqd"
+  },
+  "socials": {
+    "facebook": "https://www.facebook.com/profile.php?id=100080091243529",
+    "instagram": "https://www.instagram.com/afgchurch/",
+    "bible": "https://www.bible.com"
+  }
+}

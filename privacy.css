@@ -1,0 +1,146 @@
+/* Modern Root & Typography Variable Systems */
+:root {
+    --bg-light: #f8fafc;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --primary-blue: #106bff;
+    --border-color: #e2e8f0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-main);
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Legal Header Bar Styles */
+.legal-nav {
+    background-color: #ffffff;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 1rem 2rem;
+}
+
+.nav-container {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.back-home-btn {
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.back-home-btn:hover {
+    transform: translateX(-4px);
+}
+
+.brand-name {
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: -0.5px;
+}
+
+/* Document Container Layout */
+.privacy-container {
+    max-width: 900px;
+    margin: 2.5rem auto;
+    padding: 0 1.5rem;
+}
+
+.privacy-card {
+    background: #ffffff;
+    padding: 3rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+
+/* Typography Hierarchy Enhancements */
+h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.025em;
+}
+
+.last-updated {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+.divider {
+    border: 0;
+    height: 1px;
+    background: var(--border-color);
+    margin: 1.5rem 0 2rem 0;
+}
+
+.lead-text {
+    font-size: 1.15rem;
+    color: #334155;
+    font-weight: 500;
+    margin-bottom: 2.5rem;
+}
+
+/* Markdown Legal Elements Rendering Style rules */
+.legal-markdown h3 {
+    font-size: 1.5rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    border-left: 4px solid var(--primary-blue);
+    padding-left: 0.75rem;
+}
+
+.legal-markdown h4 {
+    font-size: 1.15rem;
+    margin-top: 1.75rem;
+    margin-bottom: 0.5rem;
+    color: #334155;
+}
+
+.legal-markdown p {
+    margin-bottom: 1.25rem;
+    color: #334155;
+}
+
+/* Professional Lists and Indents formatting */
+.legal-markdown ul {
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.legal-markdown li {
+    margin-bottom: 0.75rem;
+    list-style-type: square;
+    color: #475569;
+}
+
+.legal-markdown strong {
+    color: #0f172a;
+}
+
+/* Responsive adjustments for phones */
+@media (max-width: 640px) {
+    .privacy-card {
+        padding: 1.75rem;
+    }
+    h1 {
+        font-size: 1.85rem;
+    }
+}

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AFG Church</title>
+    <!-- Link Font Awsome for icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <!-- Link Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <!-- Social Media Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Bio card -->
+    <div id="bio-modal" class="bio-modal">
+        <div class="bio-modal-content">
+            <span class="close-modal" onclick="closeBioModal()">
+                &times;
+            </span>
+            <div class="bio-modal-body">
+                <div class="bio-modal-left">
+                    <img id="modal-image" src="" alt="">
+
+                    <div id="modal-socials" class="profile-socials"></div>
+                </div>
+                <div class="bio-modal-right">
+                    <h2 id="modal-name"></h2>
+                    <p id="modal-role"></p>
+                    <div id="modal-bio"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Header/Navbar -->
+    <header>
+        <nav class="navbar section-content">
+            <a href="#" class="nav-logo">
+                <h2 class="logo-text">AFG Church</h2>
+            </a>
+            <ul class="nav-menu">
+                <button id="menu-close-button" class="fas fa-times"></button>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">HOME</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">ABOUT US</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#pastors" class="nav-link">LEADERS</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#connect" class="nav-link">CONNECT</a>
+                </li>
+            </ul>
+
+            <button id="menu-open-button" class="fas fa-bars"></button>
+        </nav>
+
+    </header>
+
+    <main>
+        <!-- Home page section -->
+        <section class="hero-section" id="hero">
+            <div class="section-content" id="hero-content">
+                <!-- Hero content injected from home.json -->
+            </div>
+        </section>
+
+        <!-- About section -->
+        <section class="about-section" id="about">
+            <div class="section-content" id="about-content">
+                <!-- content injected from json -->
+            </div>
+        </section>
+
+        <!-- Pastor section -->
+        <section class="pastor-section" id="pastors">
+            <div class="section-content">
+                <ul class="pastor-list" id="pastor-list">
+                    <!-- Pastor content injected from home.json -->
+                </ul>
+            </div>
+        </section>
+
+        <!-- Leaders section -->
+        <section class="leaders-section" id="leaders">
+            <div class="section-content">
+                <div class="swiper leaders-slider">
+                    <div class="swiper-wrapper" id="leaders-slider-wrapper">
+                        <!-- About content injected from home.json -->
+                    </div>
+
+                    <div class="swiper-pagination leaders-pagination"></div>
+                    <div class="swiper-button-prev leaders-prev swiper-slide-button"></div>
+                    <div class="swiper-button-next leaders-next swiper-slide-button"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Connect section -->
+        <section class="connect-section" id="connect">
+            <h2 class="section-title">Connect With Us</h2>
+
+            <div class="section-content">
+                <ul class="connect-list">
+
+                    <li class="connect-info">
+                        <div class="map-wrapper">
+                            <iframe id="map-frame" loading="lazy" allowfullscreen
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </li>
+
+                    <li class="connect-info">
+                        <p id="church-address"></p>
+                    </li>
+
+                    <li class="connect-info">
+                        <p id="service-time"></p>
+                    </li>
+
+                    <li class="connect-info">
+                        <p id="contact-email"></p>
+                    </li>
+
+                    <li class="connect-info">
+                        <p id="contact-phone"></p>
+                    </li>
+
+                </ul>
+                <!-- Social media logo-->
+                <div class="social-media" id="social-media-links">
+                    <!-- social media injected -->
+                </div>
+
+                <form action="#" class="contact-form" id="contact-form" method="POST">
+                    <input type="text" name="name" placeholder="Your name" class="form-input" required>
+                    <input type="email" name="email" placeholder="Your email" class="form-input" required>
+                    <textarea name="message" placeholder="Your message" class="form-input" required></textarea>
+                    <button type="submit" class="submit-button">Submit</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Footer section -->
+        <footer class="footer-section">
+            <div class="section-content">
+                <p class="copyright-text">
+                    <span id="current-year"></span> AFG Church
+                </p>
+
+                <div class="social-link-list" id="footer-social-links">
+                    <!-- social injected -->
+                </div>
+
+                <p class="policy-text">
+                    <a href="privacy-policy.html" target="_blank" rel="noopener noreferrer" class="policy-link">Privacy policy</a>
+                </p>
+            </div>
+
+        </footer>
+    </main>
+
+    <!-- Linking swiper script-->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Linking custom script-->
+    <script src="script.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</body>
+
+<script>
+    if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+            if (!user) {
+                window.netlifyIdentity.on("login", () => {
+                    document.location.href = "/admin/";
+                });
+            }
+        });
+    }
+</script>
+
+</html>

@@ -1,0 +1,110 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_library:
+  name: cloudinary
+  config:
+    cloud_name: CLOUDINARY_CLOUD_NAME
+    api_key: CLOUDINARY_API_KEY
+    output_filename_only: false
+    cms_url: https://afgchurch.com/admin/
+
+media_folder: "uploads"
+public_folder: "uploads"
+
+collections: 
+  - name: "site"
+    label: "Site Content"
+    files: 
+      - name: "home"
+        label: "Home Page"
+        file: "home.json"
+        fields: 
+          - label: "Home Page"
+            name: "hero"
+            widget: "object"
+            fields: 
+              - { label: "Title", name: "title", widget: "string", required: true }
+              - { label: "Subtitle", name: "subtitle", widget: "string" }
+              - { label: "Verse", name: "verse", widget: "text" }
+
+          - label: "Service Info"
+            name: "service"
+            widget: "object"
+            fields: 
+              - { label: "Day", name: "day", widget: "string" }
+              - { label: "Time", name: "time", widget: "string" }
+              - { label: "Location", name: "location", widget: "string" }
+
+          - label: "About Section"
+            name: "about"
+            widget: "object"
+            fields: 
+              - { label: "Paragraph 1", name: "paragraph1", widget: "text" }
+              - { label: "Paragraph 2", name: "paragraph2", widget: "text" }
+              - { label: "Full Photo Album Link", name: "galleryUrl", widget: "string" }
+              - label: "About Section Images"
+                name: "images"
+                widget: "list"
+                value_type: "string"
+                field: { label: "Image", name: "img", widget: "image" }
+                media_library: 
+                  name: "cloudinary"
+                  config:
+                    multiple: true 
+
+          - label: "Pastors"
+            name: "pastors"
+            widget: "list"
+            fields: 
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Role", name: "role", widget: "string" }
+              - { label: "Bio", name: "bio", widget: "text" }
+              - { label: "Photo", name: "photo", widget: "image" }
+              - { label: "Enable Read Bio Option on Hover", name: "has_bio", widget: "boolean", default: false }
+              - { label: "Facebook URL (Optional)", name: "facebook", widget: "string", required: false }
+              - { label: "Instagram URL (Optional)", name: "instagram", widget: "string", required: false }
+
+          - label: "Leaders"
+            name: "leaders"
+            widget: "list"
+            fields: 
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Role", name: "role", widget: "string" }
+              - { label: "Bio", name: "bio", widget: "text" }
+              - { label: "Photo", name: "photo", widget: "image" }
+              - { label: "Enable Read Bio Option on Hover", name: "has_bio", widget: "boolean", default: false }
+              - { label: "Facebook URL (Optional)", name: "facebook", widget: "string", required: false }
+              - { label: "Instagram URL (Optional)", name: "instagram", widget: "string", required: false }
+
+          - label: "Connect Info"
+            name: "connect"
+            widget: "object"
+            fields: 
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Address", name: "address", widget: "string" }
+              - { label: "Service Time", name: "serviceTime", widget: "string" }
+              - { label: "Email", name: "email", widget: "string" }
+              - { label: "Phone", name: "phone", widget: "string" }
+              - { label: "Map URL", name: "mapEmbededUrl", widget: "string" }
+              - {label: "Form Action (Formspree URL)", name: "formAction", widget: "string"}
+
+          - name: "socials"
+            label: "Social Media Links"
+            widget: "object"
+            fields:
+              - {label: "Facebook URL", name: "facebook", widget: "string"}
+              - {label: "Instagram URL", name: "instagram", widget: "string"}
+              - {label: "Bible URL", name: "bible", widget: "string"}
+
+  - name: "legal"
+    label: "Legal Pages"
+    files:
+      - name: "privacy"
+        label: "Privacy Policy"
+        file: "content/privacy.md" 
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Last Updated Date", name: "lastUpdated", widget: "string" }
+          - { label: "Policy Body Content", name: "body", widget: "markdown" }
