@@ -47,7 +47,7 @@
       "facebook": "https://www.facebook.com/princess.panthak"
     },
     {
-      "has_bio": true,
+      "has_bio": false,
       "name": "Aiyan Rai",
       "role": "Pastor",
       "bio": "Bio working.",
