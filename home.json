@@ -11,7 +11,7 @@
     "location": "400 Donelson Pike, Nashville, TN 37214"
   },
   "about": {
-    "paragraph1": "We are a local Nepali church serving our community with love and purpose. At AFG Church, we're committed to bringing hope and healing by caring for the physical, spiritual, and relational needs of people—just as Jesus did. We joyfully serve not only the Nepali community but also our neighbors from all backgrounds, standing alongside those in need with compassion and faith.",
+    "paragraph1": "We are a local Nepali church serving our community with love and purpose. At AFG Nepali Church, we're committed to bringing hope and healing by caring for the physical, spiritual, and relational needs of people—just as Jesus did. We joyfully serve not only the Nepali community but also our neighbors from all backgrounds, standing alongside those in need with compassion and faith.",
     "paragraph2": "Together, we can reach people of every age, culture, and language with the life-changing message of Christ.",
     "galleryUrl": "https://collection.cloudinary.com/dhwpjxt89/9449e11b6ab94abe4d88c3ebadfd594c",
     "images": []
@@ -22,7 +22,7 @@
   },
   "pastors": [
     {
-      "name": "Pritham Magar",
+      "name": "Pritha Magar",
       "role": "Pastor",
       "bio": "Bio working.",
       "photo": "https://res.cloudinary.com/dhwpjxt89/image/upload/v1779402161/b9rbang9cvpepe5qo5my.jpg",
@@ -31,7 +31,7 @@
       "instagram": ""
     },
     {
-      "name": "Ratna Rai",
+      "name": "Ratna B. Rai",
       "role": "Pastor",
       "bio": "Bio about the pastor",
       "photo": "https://res.cloudinary.com/dhwpjxt89/image/upload/v1779402161/bab2hspc4sqkvmqpxpkl.jpg",
@@ -71,7 +71,7 @@
     },
     {
       "has_bio": true,
-      "name": "Anu Rai",
+      "name": "Anita Rai",
       "role": "Sunday School Teacher",
       "bio": "Bio pending",
       "photo": "https://res.cloudinary.com/dhwpjxt89/image/upload/v1779402160/na4giu0ek9jtnn5zxeqt.jpg"
