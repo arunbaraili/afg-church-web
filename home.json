@@ -1,8 +1,8 @@
 {
   "hero": {
     "title": "Assembly Faith Gospel Nepali Church ",
-    "subtitle": "Mark 16:15",
-    "verse": "And he said to them 'Go into all the world and proclaim the gospel to the whole creation.'",
+    "subtitle": "Matthew 28:19",
+    "verse": " \"Therefore go and make disciples of all nations, baptizing them in the name of the Father and of the Son and of the Holy Spirit.\"",
     "video": "uploads/background-video/churchVid.mp4"
   },
   "service": {
@@ -63,16 +63,16 @@
       "has_bio": true
     },
     {
-      "name": "Ashan Rai",
-      "role": "Treasurer",
+      "name": "Bijay Limbu",
+      "role": "Church Secretary ",
       "bio": "Bio about the leader",
-      "photo": "https://res.cloudinary.com/dhwpjxt89/image/upload/v1779402161/kryqm9zl54ofszstxven.jpg",
+      "photo": "https://res.cloudinary.com/dhwpjxt89/image/upload/v1791257019/kryqm9zl54ofszstxven.jpg",
       "has_bio": true
     },
     {
       "has_bio": true,
       "name": "Anita Rai",
-      "role": "Sunday School Teacher",
+      "role": "Treasurer and Sunday School Teacher",
       "bio": "Bio pending",
       "photo": "https://res.cloudinary.com/dhwpjxt89/image/upload/v1779402160/na4giu0ek9jtnn5zxeqt.jpg"
     },
@@ -88,13 +88,13 @@
     "title": "Connect With Us",
     "address": "400 Donelson Pike, Nashville, TN 37214",
     "serviceTime": "Sunday: 12:00 PM - 2:00 PM",
-    "email": "contact@email.com",
-    "phone": "(123) 457-7890",
+    "email": "afgnchurch@email.com",
+    "phone": "615-491-0278",
     "mapEmbededUrl": "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d497.0397877683054!2d-86.66622939068793!3d36.15615767730665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzbCsDA5JzIxLjciTiA4NsKwMzknNTkuOSJX!5e1!3m2!1sen!2sus!4v1748875444849!5m2!1sen!2sus",
     "formAction": "https://formspree.io/f/xeezvqqd"
   },
   "socials": {
-    "facebook": "https://www.facebook.com/profile.php?id=100080091243529",
+    "facebook": "https://www.facebook.com/share/19dR8i7ziY/?mibextid=wwXIfr",
     "instagram": "https://www.instagram.com/afgchurch/",
     "bible": "https://www.bible.com"
   }
