@@ -67,17 +67,17 @@
       "role": "Church Secretary ",
       "bio": "Bio about the leader",
       "photo": "https://res.cloudinary.com/dhwpjxt89/image/upload/v1791257019/kryqm9zl54ofszstxven.jpg",
-      "has_bio": true
+      "has_bio": false
     },
     {
-      "has_bio": true,
+      "has_bio": false,
       "name": "Anita Rai",
       "role": "Treasurer and Sunday School Teacher",
       "bio": "Bio pending",
       "photo": "https://res.cloudinary.com/dhwpjxt89/image/upload/v1779402160/na4giu0ek9jtnn5zxeqt.jpg"
     },
     {
-      "has_bio": true,
+      "has_bio": false,
       "name": "Moni Chamling",
       "role": "Elder",
       "bio": "Bio pending",
