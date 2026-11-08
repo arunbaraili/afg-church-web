@@ -7,10 +7,9 @@ dist/
 .DS_Store
 playwright-report/
 test-results/
-.taste-skill/chrome*/
-.impeccable/config.local.json
 
 # Local design review and original site snapshot (also retained in Git history).
-.impeccable/questions/
-.taste-skill/
 legacy/
+.impeccable/
+.taste-skill/
+/PRODUCT.md
