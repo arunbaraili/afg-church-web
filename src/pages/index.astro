@@ -1,0 +1,12 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import Home from '../components/sections/Home.astro';
+import Visit from '../components/sections/Visit.astro';
+import Mission from '../components/sections/Mission.astro';
+import About from '../components/sections/About.astro';
+import Leadership from '../components/sections/Leadership.astro';
+import Connect from '../components/sections/Connect.astro';
+import { content } from '../lib/content';
+const sections = { visit:Visit, mission:Mission, about:About, pastors:Leadership, connect:Connect };
+---
+<SiteLayout><Home />{content.appearance.sections.map(id=>{const Section=sections[id];return <Section />;})}</SiteLayout>

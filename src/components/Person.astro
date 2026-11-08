@@ -1,0 +1,7 @@
+---
+import SocialLinks from './SocialLinks.astro';
+import { optimizedImage, readyBio } from '../lib/content';
+interface Props { person: {name:string;role:string;photo:string;bio:string;has_bio:boolean;facebook?:string;instagram?:string;}; compact?:boolean; }
+const { person, compact=false } = Astro.props;
+---
+<article class:list={['person',{'person-compact':compact}]}><div class="person-photo"><img src={optimizedImage(person.photo,650)} alt={person.name} width="650" height="780" loading="lazy" /></div><h3>{person.name}</h3><p>{person.role}</p>{person.has_bio && readyBio(person.bio) && <details><summary>Read biography</summary><p class="bio">{person.bio}</p></details>}{(person.facebook || person.instagram) && <div class="person-socials"><SocialLinks profiles={person} personName={person.name} /></div>}</article>

@@ -1,0 +1,37 @@
+---
+import { content, optimizedImage } from '../../lib/content';
+import Arrow from '../Arrow.astro';
+const { home, settings } = content;
+---
+<section id="home" class="hero hero-film" aria-labelledby="home-heading" data-enter>
+  <img class="hero-poster" src={optimizedImage(home.image,1400)} alt="" width="1400" height="1050" fetchpriority="high" />
+  {home.video && <video class="hero-video" muted loop playsinline preload="none" poster={optimizedImage(home.image,1400)} data-video-src={home.video} aria-hidden="true"></video>}
+  <div class="wrap hero-film-inner">
+    <div class="hero-copy">
+      <h1 id="home-heading">{home.heading.split('\n').map(line=><span>{line}</span>)}</h1>
+      <p class="hero-name">{home.title}</p>
+      <p class="hero-intro">{home.intro}</p>
+      <div class="hero-actions"><a class="btn" href="#visit">{content.appearance.visitLabel} <Arrow /></a>{content.appearance.sections.includes("about") && <a class="text-link link" href="#about">Meet our church <Arrow /></a>}</div>
+      <p class="hero-sunday">{settings.service.day} <span aria-hidden="true">·</span> {settings.service.time}</p>
+    </div>
+  </div>
+</section>
+<script>
+  const video = document.querySelector<HTMLVideoElement>('.hero-video');
+  if (video) {
+    const motion = matchMedia('(prefers-reduced-motion: reduce)');
+    const updatePlayback = async () => {
+      if (motion.matches) {
+        video.pause();
+        video.classList.remove('is-playing');
+        return;
+      }
+      if (!video.getAttribute('src')) video.src = video.dataset.videoSrc!;
+      try { await video.play(); } catch { /* Keep the poster if autoplay is blocked. */ }
+    };
+    video.addEventListener('playing', () => video.classList.add('is-playing'));
+    video.addEventListener('error', () => video.classList.remove('is-playing'));
+    motion.addEventListener('change', updatePlayback);
+    void updatePlayback();
+  }
+</script>

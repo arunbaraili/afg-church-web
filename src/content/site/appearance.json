@@ -1,0 +1,46 @@
+{
+  "logo": "/uploads/branding/afg-church-logo.svg",
+  "logoAlt": "Assembly Faith Gospel Nepali Church seal",
+  "tagline": "Nepali Church · Nashville",
+  "pageTitle": "A church family in Nashville",
+  "description": "Join Assembly Faith Gospel Nepali Church in Nashville for Sunday worship, 12–2 PM at 400 Donelson Pike.",
+  "colors": {
+    "paper": "#ffffff",
+    "surface": "#edf2f9",
+    "ink": "#111827",
+    "accent": "#174c9c"
+  },
+  "navigation": [
+    {
+      "label": "Home",
+      "section": "home"
+    },
+    {
+      "label": "Mission",
+      "section": "mission"
+    },
+    {
+      "label": "About us",
+      "section": "about"
+    },
+    {
+      "label": "Connect",
+      "section": "connect"
+    }
+  ],
+  "sections": [
+    "visit",
+    "mission",
+    "about",
+    "pastors",
+    "connect"
+  ],
+  "visitLabel": "Plan your visit",
+  "visitHeading": "Join us this Sunday.",
+  "visitIntro": "There’s a place for you here.",
+  "photoNote": "Faith in Christ.\nLife in community.",
+  "leadershipHeading": "Our pastors & leaders.",
+  "leadershipIntro": "The people serving our church family.",
+  "formHeading": "Send us a message.",
+  "mapHeading": "Find us in Nashville."
+}

@@ -1,0 +1,40 @@
+{
+  "title": "Our mission",
+  "statement": "Together, we can reach people of every age, culture, and language with the life-changing message of Christ.",
+  "verse": "Therefore go and make disciples of all nations, baptizing them in the name of the Father and of the Son and of the Holy Spirit.",
+  "verseReference": "Matthew 28:19",
+  "image": "/uploads/community/church-07.jpg",
+  "imageAlt": "Members of AFG Church singing and playing music together",
+  "items": [
+    {
+      "slug": "nepal",
+      "title": "Nepal",
+      "location": "Nepal",
+      "body": "AFGN Church’s mission in Nepal is to share the Gospel of Jesus Christ and care for people facing hardship.",
+      "image": "/uploads/mission/nepal/kathmandu.webp",
+      "imageAlt": "",
+      "sections": [
+        {
+          "title": "Sharing the Gospel",
+          "body": "We want people in Nepal to hear the Word of God, know Jesus Christ, and grow in faith. This mission is part of our calling to make disciples of all nations (Matthew 28:19)."
+        },
+        {
+          "title": "Flood relief and practical aid",
+          "body": "Our church helps people in Nepal facing hardship, including communities affected by floods. This practical care is one way we put our faith into action alongside sharing the Gospel."
+        }
+      ],
+      "gallery": [
+        {
+          "image": "/uploads/mission/nepal/biratnagar.webp",
+          "alt": "Floodwater in Biratnagar, Nepal",
+          "caption": "Flooding in Biratnagar, Nepal, July 2019. Documentary photo."
+        },
+        {
+          "image": "/uploads/mission/nepal/terai.webp",
+          "alt": "A person with an umbrella standing in floodwater in Nepal’s Terai region",
+          "caption": "Monsoon flooding in Nepal’s Terai region, 2014. Documentary photo."
+        }
+      ]
+    }
+  ]
+}

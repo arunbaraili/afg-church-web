@@ -1,0 +1,410 @@
+backend:
+  name: github
+  repo: arunbaraili/afg-church-web
+  branch: main
+  squash_merges: true
+local_backend:
+  url: http://localhost:8081/api/v1
+site_url: https://afgchurch.com
+display_url: https://afgchurch.com
+logo_url: /uploads/branding/afg-church-logo.svg
+publish_mode: editorial_workflow
+media_folder: public/uploads
+public_folder: /uploads
+collections:
+  - name: site
+    label: Church website
+    files:
+      - name: appearance
+        label: Branding & layout
+        fields:
+          - name: logo
+            label: Church logo
+            widget: image
+          - name: logoAlt
+            label: Logo description
+            widget: string
+          - name: tagline
+            label: Church tagline
+            widget: string
+          - name: pageTitle
+            label: Browser and search title
+            widget: string
+          - name: description
+            label: Search description
+            widget: text
+          - name: colors
+            label: Site colors
+            widget: object
+            hint: Choose dark text and light backgrounds. The build checks contrast.
+            fields:
+              - name: paper
+                label: Page background
+                widget: color
+                allowInput: true
+              - name: surface
+                label: Alternate background
+                widget: color
+                allowInput: true
+              - name: ink
+                label: Text and buttons
+                widget: color
+                allowInput: true
+              - name: accent
+                label: Accent
+                widget: color
+                allowInput: true
+          - name: navigation
+            label: Navigation links
+            widget: list
+            summary: "{{fields.label}}"
+            fields:
+              - name: label
+                label: Link text
+                widget: string
+              - name: section
+                label: Destination
+                widget: select
+                options:
+                  - label: Home
+                    value: home
+                  - &a1
+                    label: Sunday visit
+                    value: visit
+                  - &a2
+                    label: Mission
+                    value: mission
+                  - &a3
+                    label: About us
+                    value: about
+                  - &a4
+                    label: Pastors & leaders
+                    value: pastors
+                  - &a5
+                    label: Connect
+                    value: connect
+          - name: sections
+            label: Homepage section order
+            widget: list
+            hint: Drag to reorder. Remove a section to hide it. Keep Sunday visit.
+            field:
+              name: section
+              label: Section
+              widget: select
+              options:
+                - *a1
+                - *a2
+                - *a3
+                - *a4
+                - *a5
+          - name: visitLabel
+            label: Visit button
+            widget: text
+          - name: visitHeading
+            label: Sunday visit heading
+            widget: text
+          - name: visitIntro
+            label: Sunday visit introduction
+            widget: text
+          - name: photoNote
+            label: Home photo message
+            widget: text
+          - name: leadershipHeading
+            label: Leadership heading
+            widget: text
+          - name: leadershipIntro
+            label: Leadership introduction
+            widget: text
+          - name: formHeading
+            label: Contact form heading
+            widget: text
+          - name: mapHeading
+            label: Map heading
+            widget: text
+        file: src/content/site/appearance.json
+        format: json
+      - name: home
+        label: Home
+        fields:
+          - name: title
+            label: Full church name
+            widget: string
+          - name: heading
+            label: Welcome heading
+            widget: text
+          - name: intro
+            label: Introduction
+            widget: text
+          - &a6
+            name: image
+            label: Image
+            widget: image
+          - &a7
+            name: imageAlt
+            label: Image description
+            widget: string
+          - name: video
+            label: Community video
+            widget: file
+            required: false
+          - name: verse
+            label: Scripture
+            widget: text
+          - name: verseReference
+            label: Scripture reference
+            widget: string
+        file: src/content/site/home.json
+        format: json
+      - name: mission
+        label: Mission
+        fields:
+          - name: title
+            label: Heading
+            widget: string
+          - name: statement
+            label: Mission statement
+            widget: text
+          - name: verse
+            label: Scripture
+            widget: text
+          - name: verseReference
+            label: Scripture reference
+            widget: string
+          - *a6
+          - *a7
+          - name: items
+            label: Mission stories
+            widget: list
+            required: false
+            summary: "{{fields.location}} — {{fields.title}}"
+            hint: Add a mission and its real location. Each story gets its own page.
+            fields:
+              - name: title
+                label: Title
+                widget: string
+              - name: location
+                label: Location
+                widget: string
+                required: false
+                hint: If empty, the location label is hidden.
+              - name: slug
+                label: Page address
+                widget: string
+                hint: Use a unique lowercase address, for example nepal-outreach.
+                pattern:
+                  - ^[a-z0-9]+(?:-[a-z0-9]+)*$
+                  - Use lowercase letters, numbers, and hyphens
+              - name: body
+                label: Mission introduction
+                widget: text
+                required: false
+                hint: If empty, the introduction is hidden.
+              - name: image
+                label: Cover image
+                widget: image
+                required: false
+                hint: If empty, the card uses the main Mission image.
+              - name: imageAlt
+                label: Cover image description
+                widget: string
+                required: false
+                hint: Describe the cover for visitors using screen readers.
+              - name: sections
+                label: Mission and aid sections
+                widget: list
+                required: false
+                summary: "{{fields.title}}"
+                fields:
+                  - name: title
+                    label: Section heading
+                    widget: string
+                    required: false
+                  - name: body
+                    label: Section text
+                    widget: text
+                    required: false
+                    hint: Empty sections are skipped.
+              - name: gallery
+                label: Additional photos
+                widget: list
+                required: false
+                fields:
+                  - name: image
+                    label: Photo
+                    widget: image
+                    required: false
+                    hint: A row without a photo is skipped.
+                  - name: alt
+                    label: Image description
+                    widget: string
+                    required: false
+                    hint: Describe the photo for visitors using screen readers.
+                  - name: caption
+                    label: Caption
+                    widget: string
+                    required: false
+        file: src/content/site/mission.json
+        format: json
+      - name: about
+        label: About us & gallery
+        fields:
+          - name: title
+            label: Heading
+            widget: text
+          - name: paragraph1
+            label: About the church
+            widget: text
+          - name: paragraph2
+            label: Closing statement
+            widget: text
+          - name: galleryUrl
+            label: Full photo album URL
+            widget: string
+            required: false
+          - name: images
+            label: Community photos
+            widget: list
+            summary: "{{fields.alt}}"
+            fields:
+              - name: image
+                label: Photo
+                widget: image
+              - name: alt
+                label: Image description
+                widget: string
+        file: src/content/site/about.json
+        format: json
+      - name: leadership
+        label: Pastors & leaders
+        fields:
+          - name: pastors
+            label: Pastors
+            widget: list
+            summary: "{{fields.name}}"
+            fields: &a8
+              - name: name
+                label: Name
+                widget: string
+              - name: role
+                label: Role
+                widget: string
+              - name: photo
+                label: Photo
+                widget: image
+              - name: bio
+                label: Biography
+                widget: text
+                required: false
+              - name: has_bio
+                label: Show biography when complete
+                widget: boolean
+                default: false
+              - name: facebook
+                label: Facebook URL
+                widget: string
+                required: false
+                pattern:
+                  - ^https://|^$
+                  - Use an HTTPS URL
+              - name: instagram
+                label: Instagram URL
+                widget: string
+                required: false
+                pattern:
+                  - ^https://|^$
+                  - Use an HTTPS URL
+          - name: leaders
+            label: Leaders
+            widget: list
+            summary: "{{fields.name}}"
+            fields: *a8
+        file: src/content/site/leadership.json
+        format: json
+      - name: connect
+        label: Connect
+        fields:
+          - name: title
+            label: Heading
+            widget: string
+          - name: intro
+            label: Introduction
+            widget: text
+          - name: address
+            label: Address
+            widget: string
+          - name: serviceTime
+            label: Service time
+            widget: string
+          - name: email
+            label: Email
+            widget: string
+          - name: phone
+            label: Phone
+            widget: string
+          - name: mapEmbededUrl
+            label: Google Maps embed URL
+            widget: string
+          - name: formAction
+            label: Formspree endpoint
+            widget: string
+        file: src/content/site/connect.json
+        format: json
+      - name: settings
+        label: Church settings
+        fields:
+          - name: name
+            label: Short church name
+            widget: string
+          - name: fullName
+            label: Full church name
+            widget: string
+          - name: siteUrl
+            label: Website URL
+            widget: string
+          - name: service
+            label: Sunday gathering
+            widget: object
+            fields:
+              - name: day
+                label: Day
+                widget: string
+              - name: time
+                label: Time
+                widget: string
+              - name: location
+                label: Address
+                widget: string
+          - name: socials
+            label: Social links
+            widget: object
+            fields:
+              - name: facebook
+                label: Facebook
+                widget: string
+                required: false
+              - name: instagram
+                label: Instagram
+                widget: string
+                required: false
+              - name: bible
+                label: Bible
+                widget: string
+                required: false
+        file: src/content/site/settings.json
+        format: json
+  - name: legal
+    label: Legal pages
+    files:
+      - name: privacy
+        label: Privacy policy
+        file: src/content/privacy.md
+        fields:
+          - name: title
+            label: Title
+            widget: string
+          - name: lastUpdated
+            label: Last updated
+            widget: string
+          - name: body
+            label: Policy text
+            widget: markdown

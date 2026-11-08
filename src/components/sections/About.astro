@@ -1,0 +1,6 @@
+---
+import { content, optimizedImage } from '../../lib/content';
+import Arrow from '../Arrow.astro';
+const { about } = content;
+---
+<section class="about-section section-space" id="about" aria-labelledby="about-heading"><div class="wrap"><div class="about-grid"><h2 id="about-heading">{about.title}</h2><div class="about-copy"><p>{about.paragraph1}</p><p>{about.paragraph2}</p>{content.appearance.sections.includes("pastors") && <a class="text-link link" href="#pastors">Meet our leadership <Arrow /></a>}</div></div>{about.images.length>0 && <div class="community-grid">{about.images.map((image,i)=><a class="m-zoom" href={about.galleryUrl || image.image} target="_blank" rel="noopener noreferrer" aria-label={`Open church photo album: ${image.alt}`}><img src={optimizedImage(image.image,900)} alt={image.alt} width="900" height={i===1?1000:750} loading="lazy" /></a>)}</div>}<div class="community-links">{about.galleryUrl && <a class="text-link link" href={about.galleryUrl} target="_blank" rel="noopener noreferrer">View our photo album <Arrow /></a>}</div></div></section>

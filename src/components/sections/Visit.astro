@@ -1,0 +1,6 @@
+---
+import { content, directionsUrl } from '../../lib/content';
+import Arrow from '../Arrow.astro';
+const { settings } = content;
+---
+<section class="visit-strip" id="visit" aria-labelledby="visit-heading"><div class="wrap visit-grid"><div><h2 id="visit-heading">{content.appearance.visitHeading}</h2><p>{content.appearance.visitIntro}</p></div><dl><div><dt>When we gather</dt><dd>{settings.service.day}<br />{settings.service.time}</dd></div><div><dt>Where we gather</dt><dd>{settings.service.location}</dd></div></dl><a class="text-link link" href={directionsUrl} target="_blank" rel="noopener noreferrer">Get directions <Arrow /></a></div></section>

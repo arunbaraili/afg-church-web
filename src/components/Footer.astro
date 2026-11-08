@@ -1,0 +1,9 @@
+---
+import SocialLinks from './SocialLinks.astro';
+import { content } from '../lib/content';
+const { settings, connect } = content;
+---
+<footer class="site-footer"><div class="wrap">
+  <div class="footer-top"><a class="footer-name" href="/"><img class="footer-logo" src={content.appearance.logo} alt={content.appearance.logoAlt} width="80" height="80" loading="lazy" /><div>{settings.name}<span>{content.appearance.tagline}</span></div></a><p>{settings.fullName}<br />{connect.address}</p><div class="footer-links"><a href="/#visit">{content.appearance.visitLabel}</a>{content.appearance.navigation.filter(link=>link.section!=="home" && link.section!=="visit" && content.appearance.sections.some(section=>section===link.section)).map(link=><a href={`/#${link.section}`}>{link.label}</a>)}</div></div>
+  <div class="footer-bottom"><p>© {new Date().getFullYear()} {settings.name}</p><div><SocialLinks /><a href="/privacy-policy/">Privacy policy</a></div></div>
+</div></footer>

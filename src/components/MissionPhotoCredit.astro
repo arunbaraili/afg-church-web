@@ -1,0 +1,5 @@
+---
+interface Props { credit: { creator:string; source:string; license:string; licenseUrl:string }; }
+const { credit } = Astro.props;
+---
+<span class="mission-photo-credit">Image: <a href={credit.source} class="link">{credit.creator}</a> · <a href={credit.licenseUrl} class="link">{credit.license}</a> · resized and converted to WebP.</span>

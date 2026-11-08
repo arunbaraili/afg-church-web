@@ -1,1 +1,16 @@
-node_modules
+node_modules/
+dist/
+.astro/
+.env
+.env.*
+!.env.example
+.DS_Store
+playwright-report/
+test-results/
+.taste-skill/chrome*/
+.impeccable/config.local.json
+
+# Local design review and original site snapshot (also retained in Git history).
+.impeccable/questions/
+.taste-skill/
+legacy/

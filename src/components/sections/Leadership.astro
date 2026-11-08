@@ -1,0 +1,24 @@
+---
+import { content } from '../../lib/content';
+import SlideControls from '../SlideControls.astro';
+import Person from '../Person.astro';
+const { pastors, leaders } = content.leadership;
+---
+<section class="leadership-section section-space" id="pastors" aria-labelledby="pastors-heading">
+  <div class="wrap">
+    <div class="section-heading">
+      <h2 id="pastors-heading">{content.appearance.leadershipHeading}</h2>
+      <p>{content.appearance.leadershipIntro}</p>
+    </div>
+    {pastors.length > 0 && <div class="pastor-grid">{pastors.map(person => <Person person={person} />)}</div>}
+    {leaders.length > 0 && <div class="leader-group" id="leaders">
+      <div class="leader-heading">
+        <h3 id="leaders-heading">Church leaders</h3>
+        <SlideControls trackId="leader-track" itemName="leader" />
+      </div>
+      <ul id="leader-track" class="leader-grid" aria-labelledby="leaders-heading" tabindex={leaders.length > 1 ? 0 : undefined}>
+        {leaders.map(person => <li><Person person={person} compact /></li>)}
+      </ul>
+    </div>}
+  </div>
+</section>

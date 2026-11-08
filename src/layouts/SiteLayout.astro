@@ -1,0 +1,35 @@
+---
+import '@fontsource/dm-sans/400.css';
+import '@fontsource/dm-sans/500.css';
+import '@fontsource/dm-sans/600.css';
+import '@fontsource/fraunces/400.css';
+import '@fontsource/fraunces/500.css';
+import '../styles/global.css';
+import { content } from '../lib/content';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+interface Props { title?: string; description?: string; }
+const { title = `${content.settings.name} · ${content.appearance.pageTitle}`, description = content.appearance.description } = Astro.props;
+const canonical = new URL(Astro.url.pathname, content.settings.siteUrl);
+---
+<!doctype html>
+<html lang="en" data-type="place" data-motion style={Object.entries(content.appearance.colors).map(([key,value]) => `--${key}:${value}`).join(";")}>
+  <head>
+    <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title><meta name="description" content={description} />
+    <meta name="theme-color" content={content.appearance.colors.paper} /><meta name="page-type" content="place" /><meta name="site-kind" content="other" /><meta name="page-kind" content="place" />
+    <link rel="icon" href={content.appearance.logo} />
+    <link rel="apple-touch-icon" sizes="180x180" href={content.appearance.logo === "/uploads/branding/afg-church-logo.svg" ? "/icons/church-180.png" : content.appearance.logo} />
+    <link rel="manifest" href="/site.webmanifest" /><link rel="canonical" href={canonical} />
+    <meta property="og:title" content={title} /><meta property="og:description" content={description} /><meta property="og:type" content="website" /><meta property="og:url" content={canonical} /><meta property="og:image" content={new URL(content.home.image,content.settings.siteUrl)} /><meta name="twitter:card" content="summary_large_image" />
+    <link rel="stylesheet" href="/design/motion/motion.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <Header />
+    <main id="main"><slot /></main>
+    <Footer />
+    <script src="/design/motion/motion.js" is:inline type="module"></script>
+    <script src="/design/moments/moments.js" is:inline type="module"></script>
+  </body>
+</html>

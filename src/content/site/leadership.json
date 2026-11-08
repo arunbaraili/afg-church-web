@@ -1,0 +1,59 @@
+{
+  "pastors": [
+    {
+      "name": "Pritha Magar",
+      "role": "Pastor",
+      "bio": "Bio working.",
+      "photo": "/uploads/community/leader-01.jpg",
+      "has_bio": true,
+      "facebook": "https://www.facebook.com/pritha7077",
+      "instagram": ""
+    },
+    {
+      "name": "Ratna B. Rai",
+      "role": "Pastor",
+      "bio": "Bio about the pastor",
+      "photo": "/uploads/community/leader-02.jpg",
+      "has_bio": true,
+      "facebook": "https://www.facebook.com/ratna.rai.96155"
+    },
+    {
+      "name": "Monu Rai",
+      "role": "Pastor",
+      "bio": "Bio about the pastor",
+      "photo": "/uploads/community/leader-03.jpg",
+      "has_bio": true,
+      "facebook": "https://www.facebook.com/princess.panthak"
+    }
+  ],
+  "leaders": [
+    {
+      "name": "Alina Rai",
+      "role": "Youth Leader",
+      "bio": "Bio Pending",
+      "photo": "/uploads/community/leader-04.jpg",
+      "has_bio": true
+    },
+    {
+      "name": "Bijay Limbu",
+      "role": "Church Secretary ",
+      "bio": "Bio about the leader",
+      "photo": "/uploads/community/leader-05.jpg",
+      "has_bio": false
+    },
+    {
+      "has_bio": false,
+      "name": "Anita Rai",
+      "role": "Treasurer and Sunday School Teacher",
+      "bio": "Bio pending",
+      "photo": "/uploads/community/leader-06.jpg"
+    },
+    {
+      "has_bio": false,
+      "name": "Moni Chamling",
+      "role": "Elder",
+      "bio": "Bio pending",
+      "photo": "/uploads/community/leader-07.jpg"
+    }
+  ]
+}

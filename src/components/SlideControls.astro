@@ -1,0 +1,29 @@
+---
+interface Props { trackId: string; itemName: string; }
+const { trackId, itemName } = Astro.props;
+---
+<div class="leader-controls" data-slide-controls={trackId} hidden>
+  <button type="button" data-step="-1" aria-label={`Previous ${itemName}`} aria-controls={trackId}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg></button>
+  <button type="button" data-step="1" aria-label={`Next ${itemName}`} aria-controls={trackId}><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button>
+</div>
+<script>
+  document.querySelectorAll<HTMLElement>('[data-slide-controls]').forEach(controls => {
+    const track = document.getElementById(controls.dataset.slideControls!);
+    if (!track) return;
+    const buttons = Array.from(controls.querySelectorAll('button'));
+    const sync = () => {
+      const end = track.scrollWidth - track.clientWidth;
+      controls.hidden = end <= 2;
+      buttons[0].disabled = track.scrollLeft <= 2;
+      buttons[1].disabled = track.scrollLeft >= end - 2;
+    };
+    buttons.forEach(button => button.addEventListener('click', () => {
+      const [first, next] = Array.from(track.children) as HTMLElement[];
+      const distance = next ? next.offsetLeft - first.offsetLeft : track.clientWidth;
+      track.scrollBy({left:Number(button.dataset.step)*distance, behavior:matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'});
+    }));
+    track.addEventListener('scroll', sync, {passive:true});
+    new ResizeObserver(sync).observe(track);
+    sync();
+  });
+</script>

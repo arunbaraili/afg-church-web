@@ -1,0 +1,9 @@
+---
+import { content } from '../lib/content';
+import SiteLayout from '../layouts/SiteLayout.astro';
+import { Content, frontmatter } from '../content/privacy.md';
+import policySource from '../content/privacy.md?raw';
+import { assertSafeMarkdown } from '../lib/safe-markdown.mjs';
+assertSafeMarkdown(policySource);
+---
+<SiteLayout title={`Privacy policy · ${content.settings.name}`}><article class="wrap policy section-space"><a class="link" href="/">Back to {content.settings.name}</a><h1>{frontmatter.title}</h1><p>Last updated: {frontmatter.lastUpdated}</p><Content /></article></SiteLayout>

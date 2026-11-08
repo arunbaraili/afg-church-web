@@ -1,0 +1,22 @@
+---
+import { content, optimizedImage } from '../../lib/content';
+import Arrow from '../Arrow.astro';
+import SlideControls from '../SlideControls.astro';
+const { mission } = content;
+const cards = [{slug:'overview',title:mission.title,location:'Nashville, Tennessee',image:mission.image,imageAlt:mission.imageAlt}, ...mission.items];
+---
+<section class="mission-section section-space" id="mission" aria-labelledby="mission-heading">
+  <div class="wrap">
+    <div class="section-heading"><h2 id="mission-heading">{mission.title}</h2><p>{mission.statement}</p></div>
+    <div class="scripture mission-scripture" data-moment="word-highlight"><blockquote><p class="mo-wh__text">{mission.verse}</p><cite>{mission.verseReference}</cite></blockquote></div>
+    <div class="mission-carousel">
+      <div class="leader-heading"><h3 id="mission-stories-heading">Mission stories</h3><SlideControls trackId="mission-track" itemName="mission story" /></div>
+      <ul id="mission-track" class="leader-grid mission-track" aria-labelledby="mission-stories-heading" tabindex={cards.length > 1 ? 0 : undefined}>
+        {cards.map(card => <li><a class="mission-card" href={`/mission/${card.slug}/`} target="_blank" rel="noopener noreferrer">
+          <img src={optimizedImage(card.image || mission.image,850)} alt="" loading="lazy" width="850" height="640" />
+          <span class="mission-overlay">{card.location && <span>{card.location}</span>}<strong>{card.title}</strong><span class="mission-open">View mission <Arrow /><span class="sr-only"> (opens in a new tab)</span></span></span>
+        </a></li>)}
+      </ul>
+    </div>
+  </div>
+</section>

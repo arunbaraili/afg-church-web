@@ -1,0 +1,32 @@
+---
+import { content } from '../lib/content';
+const home = Astro.url.pathname === '/';
+const href = (anchor:string) => home ? anchor : `/${anchor}`;
+---
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/" aria-label={`${content.settings.name} home`}>
+      <img class="brand-logo" src={content.appearance.logo} alt="" width="56" height="56" />
+      <span>{content.settings.name}<small>{content.appearance.tagline}</small></span>
+    </a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="primary-navigation" hidden>Menu <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
+    <nav id="primary-navigation" aria-label="Main navigation">
+      {content.appearance.navigation.filter(link=>link.section==='home' || content.appearance.sections.some(section=>section===link.section)).map(link=><a href={href('#'+link.section)}>{link.label}</a>)}
+      <a class="btn btn-small" href={href('#visit')}>{content.appearance.visitLabel}</a>
+    </nav>
+  </div>
+</header>
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
+  const nav = document.querySelector<HTMLElement>('#primary-navigation');
+  if(toggle && nav) {
+    toggle.hidden = false;
+    document.documentElement.classList.add('nav-enhanced');
+    const close = () => { toggle.setAttribute('aria-expanded','false'); nav.classList.remove('is-open'); };
+    toggle.addEventListener('click',()=>{ const open=toggle.getAttribute('aria-expanded')!=='true'; toggle.setAttribute('aria-expanded',String(open));nav.classList.toggle('is-open',open); });
+    nav.addEventListener('click',e=>{ if((e.target as HTMLElement).closest('a')) close(); });
+    document.addEventListener('keydown',e=>{if(e.key==='Escape' && toggle.getAttribute('aria-expanded')==='true'){close();toggle.focus();}});
+    document.addEventListener('click',e=>{if(!(e.target as HTMLElement).closest('.site-header'))close();});
+    matchMedia('(min-width: 901px)').addEventListener('change',close);
+  }
+</script>

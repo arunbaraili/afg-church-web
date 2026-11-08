@@ -1,0 +1,63 @@
+---
+import imageSources from '../../content/mission-image-sources.json';
+import MissionPhotoCredit from '../../components/MissionPhotoCredit.astro';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import { content, optimizedImage } from '../../lib/content';
+const { mission } = content;
+export function getStaticPaths() {
+  const { mission } = content;
+  const stories = [{slug:'overview', title:mission.title, location:'Nashville, Tennessee', body:mission.statement, image:mission.image,imageAlt:mission.imageAlt,gallery:[],sections:[]}, ...mission.items];
+  return stories.map(story=>({params:{slug:story.slug},props:{story}}));
+}
+const { story } = Astro.props;
+const photos = story.gallery.filter(photo => photo.image);
+const sources: Record<string,{creator:string;source:string;license:string;licenseUrl:string}> = imageSources;
+const credits = [...new Set([story.image, ...photos.map(photo=>photo.image)])].flatMap(image => sources[image] ? [sources[image]] : []);
+const extra = Math.max(0, photos.length - 4);
+
+---
+<SiteLayout title={`${story.title} · ${content.settings.name}`}>
+  <article class="wrap section-space mission-detail">
+    <a class="text-link link" href="/#mission">Back to Mission</a>
+    <h1>{story.title}</h1>
+    {story.location && <p class="mission-location">{story.location}</p>}
+    {story.image && <figure class="mission-cover-figure">
+      <img class="mission-detail-cover" src={optimizedImage(story.image,1400)} alt={story.imageAlt} width="1400" height="900" />
+    </figure>}
+    {story.body && <div class="mission-detail-copy">{story.body.split(/\n\s*\n/).map(paragraph=><p>{paragraph}</p>)}</div>}
+    {story.slug === 'overview' && <blockquote class="scripture"><div><p>{mission.verse}</p><cite>{mission.verseReference}</cite></div></blockquote>}
+    {story.sections.filter(section=>section.body).map(section=><section class="mission-detail-copy">{section.title && <h2>{section.title}</h2>}{section.body.split(/\n\s*\n/).map(paragraph=><p>{paragraph}</p>)}</section>)}
+    {photos.length > 0 && <section class="mission-gallery" aria-labelledby="mission-photos-heading">
+      <h2 id="mission-photos-heading">Mission photos</h2>
+      <div class="mission-photo-grid">{photos.slice(0,4).map((photo,index)=><figure>
+        {index === 3 && extra > 0 ?
+          <a class="mission-photo-tile" href="#all-mission-photos" data-open-mission-gallery aria-label={`View all ${photos.length} photos`}>
+            <img src={optimizedImage(photo.image,700)} alt="" loading="lazy" width="700" height="700" />
+            <span class="mission-more">+{extra}<small>View all photos</small></span>
+          </a> :
+          <a class="mission-photo-tile" href={photo.image} target="_blank" rel="noopener noreferrer" aria-label={photo.alt ? `Open full image: ${photo.alt}` : `Open photo ${index+1}`}>
+            <img src={optimizedImage(photo.image,700)} alt={photo.alt} loading="lazy" width="700" height="700" />
+          </a>}
+        {photo.caption && <figcaption>{photo.caption}</figcaption>}
+      </figure>)}</div>
+      {extra > 0 && <details id="all-mission-photos" class="mission-all-photos">
+        <summary>View all {photos.length} photos</summary>
+        <div class="mission-photo-grid">{photos.map((photo,index)=><figure>
+          <a class="mission-photo-tile" href={photo.image} target="_blank" rel="noopener noreferrer" aria-label={photo.alt || `Open photo ${index+1}`}>
+            <img src={optimizedImage(photo.image,700)} alt={photo.alt} loading="lazy" width="700" height="700" />
+          </a>
+          {photo.caption && <figcaption>{photo.caption}</figcaption>}
+        </figure>)}</div>
+      </details>}
+    </section>}
+    {credits.length > 0 && <details class="mission-image-sources"><summary>Image sources</summary><ul>
+      {credits.map(credit=>credit && <li><MissionPhotoCredit credit={credit} /></li>)}
+    </ul></details>}
+  </article>
+</SiteLayout>
+<script>
+  document.querySelector('[data-open-mission-gallery]')?.addEventListener('click', () => {
+    const gallery = document.querySelector<HTMLDetailsElement>('#all-mission-photos');
+    if (gallery) gallery.open = true;
+  });
+</script>

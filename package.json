@@ -1,6 +1,29 @@
 {
   "dependencies": {
+    "@fontsource/dm-sans": "^5.3.0",
+    "@fontsource/fraunces": "^5.3.0",
+    "astro": "^7.4.7",
     "cloudinary": "^2.10.0",
-    "decap-cms-app": "^3.10.0"
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.12",
+    "@playwright/test": "^1.65.0",
+    "decap-server": "^3.11.6",
+    "typescript": "^6.0.3",
+    "yaml": "^2.9.1"
+  },
+  "name": "afg-church-web",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev --host 127.0.0.1",
+    "build": "npm run validate && astro build && node scripts/write-security-headers.mjs",
+    "preview": "astro preview --host 127.0.0.1",
+    "check": "astro check",
+    "validate": "node scripts/validate-content.mjs",
+    "cms": "decap-server",
+    "test": "playwright test"
   }
 }
