@@ -1,8 +1,6 @@
 backend:
-  name: github
-  repo: arunbaraili/afg-church-web
+  name: git-gateway
   branch: main
-  squash_merges: true
 local_backend:
   url: http://localhost:8081/api/v1
 site_url: https://afgchurch.com

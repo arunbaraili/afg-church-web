@@ -10,12 +10,10 @@ The sidebar separates Home, Mission, About us & gallery, Pastors & leaders, Conn
 
 ## Production authentication — owner setup before launch
 
-The old Git Gateway backend is deprecated. The new config uses Decap's GitHub backend and its editorial workflow. There is no paid CMS subscription. Editors need a GitHub account with access to `arunbaraili/afg-church-web`. Configure a GitHub OAuth application and its Netlify authentication provider using the official documentation before deploying this migration:
+Decap uses the existing Netlify Identity and Git Gateway integration. Open `/admin/`, click **Login**, and use the email and password already registered for this Netlify site. Editors do not need to sign into GitHub. Keep Identity invite-only and leave the existing Git Gateway connection enabled. If login succeeds but content cannot load, check the existing repository connection in Netlify.
 
-- https://decapcms.org/docs/github-backend/
-- https://docs.netlify.com/manage/security/secure-access-to-sites/oauth-provider-tokens/
-
-Set the GitHub OAuth callback to the callback specified by Netlify's authentication provider (normally `https://api.netlify.com/auth/done`). Store the client secret only in Netlify's provider settings. Never add credentials to this repository. Existing Netlify Identity-only editors will need GitHub access or a separately chosen authentication alternative; their logins are not automatically migrated.
+- [Decap Git Gateway setup](https://decapcms.org/docs/git-gateway-backend/)
+- [Netlify Git Gateway](https://docs.netlify.com/manage/security/secure-access-to-sites/git-gateway/)
 
 After the owner approves the local rebuild, use a Netlify deploy preview to test login, a draft edit, an uploaded image, preview links, and publish/revert on a non-production branch before switching the live domain. Production save/publish creates Git commits; do not use it during local review. In local proxy mode Decap uses the local filesystem workflow rather than GitHub review states.
 
